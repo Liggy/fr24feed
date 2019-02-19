@@ -1,0 +1,21 @@
+#!/bin/sh
+
+case `uname -m` in
+	x86_64)
+		archive='https://github.com/liggy1/fr24feed/raw/master/fr24feed_1.0.18-5_amd64.tgz'
+		;;
+
+	i386|i686)
+		archive='https://github.com/liggy1/fr24feed/raw/master/fr24feed_1.0.18-5_i386.tgz'
+		;;
+
+	armv7l|armhf)
+		archive='https://github.com/liggy1/fr24feed/raw/master/fr24feed_1.0.23-8_armhf.tgz'
+		;;
+
+	*)
+		echo "Unsupported architecture"
+		return 1;
+esac
+
+wget -O - ${archive}|tar -xzvf - -C /bin --strip 1
