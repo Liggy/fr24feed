@@ -3,7 +3,7 @@ FROM debian:stretch-slim
 ADD feed-dl /bin/feed-dl
 
 RUN apt-get update && apt-get -y upgrade && \
-    apt-get -y install procps librtlsdr0 librtlsdr-dev wget unzip build-essential pkg-config && \
+    apt-get -y install procps librtlsdr0 librtlsdr-dev wget unzip build-essential pkg-config ca-certificates && \
     wget https://github.com/MalcolmRobb/dump1090/archive/master.zip && \
     unzip master.zip && \
     rm master.zip && \
